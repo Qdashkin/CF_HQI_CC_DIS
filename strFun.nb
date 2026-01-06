@@ -1,0 +1,619 @@
+(* Content-type: application/vnd.wolfram.cdf.text *)
+
+(*** Wolfram CDF File ***)
+(* http://www.wolfram.com/cdf *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*************************************************************************)
+(*                                                                       *)
+(*                                                                       *)
+(*  This file was created under the Wolfram Enterprise licensing terms.  *)
+(*                                                                       *)
+(*       For additional information concerning CDF licensing see:        *)
+(*                                                                       *)
+(*        www.wolfram.com/cdf/adopting-cdf/licensing-options.html        *)
+(*                                                                       *)
+(*                                                                       *)
+(*                                                                       *)
+(*************************************************************************)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[      1064,         20]
+NotebookDataLength[     22805,        598]
+NotebookOptionsPosition[     17742,        514]
+NotebookOutlinePosition[     18427,        536]
+CellTagsIndexPosition[     18384,        533]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["README", "Title",ExpressionUUID->"98620dcb-b19f-47ad-8179-76bc3b4a9ae9"],
+
+Cell[CellGroupData[{
+
+Cell["Notations", "Chapter",ExpressionUUID->"384d1439-e438-4ec8-a6d4-574ccbdbc736"],
+
+Cell["Here I collect symbols used within this notebook. ", "Text",ExpressionUUID->"c3db4546-64de-4d22-85ae-bc0d3567ac4b"],
+
+Cell[CellGroupData[{
+
+Cell["How to use this notebook", "Section",ExpressionUUID->"17668f86-1928-4c4f-8889-49f1042ab36c"],
+
+Cell["\<\
+Simply evaluate the \[OpenCurlyDoubleQuote]Load Dump File\
+\[CloseCurlyDoubleQuote] section. It is important that both the current \
+notebook
+and the provided storage file are located at the same folder.\
+\>", "Text",ExpressionUUID->"4bca8eb6-d2eb-45a6-ac9f-dce2a22f4d26"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Color", "Section",ExpressionUUID->"6b92e068-2238-4a6f-9785-46ef51fa8348"],
+
+Cell[TextData[{
+ "Color factors ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    SubscriptBox["N", "c"]}], TraditionalForm]],ExpressionUUID->
+  "028ccad1-23ef-4c89-bcec-8a35e24d9ba7"],
+ "\[Equivalent]NC=3)"
+}], "Text",ExpressionUUID->"143be534-fc7d-45a1-83ed-765d368a8533"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"cF", "\[Rule]", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["NC", "2"], "-", "1"}], 
+     RowBox[{"2", "NC"}]]}], ",", 
+   RowBox[{"cA", "\[Rule]", "NC"}], ",", " ", 
+   RowBox[{"tR", "\[Rule]", 
+    RowBox[{"1", "/", "2"}]}]}], "}"}]], "Input",ExpressionUUID->"9ef36154-\
+46ca-439c-ae6f-90bce774575d"],
+
+Cell["\<\
+tR is everywhere replaced by its value in the coefficients and here only for \
+reference.\
+\>", "Text",ExpressionUUID->"4cf9b6f6-3dcd-46fd-a840-81158441fbac"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["GPLs", "Section",ExpressionUUID->"f8c2b3e0-b0bf-48d4-89cd-fcd2d626daca"],
+
+Cell["\<\
+We use the notation of Gonacharov polylogarithms (GPLs) compatible with GiNaC \
+which can be accessed 
+through PolyLogTools interface. \
+\>", "Text",ExpressionUUID->"e1f55d04-e6bd-4f96-a143-1ea498d477c5"],
+
+Cell["\<\
+However, for the bookkeeping purpose, we keep the iterated integrals, briefly \
+mentioned in the paper. \[LineSeparator]They are mapped to the GPLs via \
+``mapIteratedIntegrals\[CloseCurlyQuote]\[CloseCurlyQuote]\
+\>", "Text",ExpressionUUID->"7d6261ed-2bbb-4106-a7e2-2c11f663ddcd"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Variables and other", "Section",ExpressionUUID->"8d18d157-7704-4e31-8c85-e2be31bb5897"],
+
+Cell[TextData[{
+ "The definition of the variables is defined in the paper.\[LineSeparator]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"y1", "->", 
+     SubscriptBox["y", "1"]}], ",", 
+    RowBox[{"y2", "->", 
+     SubscriptBox["y", "2"]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "69a868fc-0472-4768-9f61-514fb5062d8f"]
+}], "Text",ExpressionUUID->"a8b79342-8b6d-4d22-9f8a-f01549fe13f1"],
+
+Cell["\<\
+They can be mapped to the \[Xi]\[CloseCurlyQuote](\[Xi]pr) defined in \
+Kretzer, S. and Schienbein, I. \[OpenCurlyDoubleQuote]Heavy quark initiated \
+contributions to deep inelastic structure functions\[CloseCurlyDoubleQuote].\
+\>", "Text",ExpressionUUID->"5a5553ca-ee72-4da8-aae4-348533f21ee0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"y1", "\[Rule]", 
+    RowBox[{"1", "-", "\[Xi]pr"}]}], ",", 
+   RowBox[{"y2", "\[Rule]", 
+    RowBox[{"m2", " ", 
+     FractionBox["\[Xi]pr", 
+      RowBox[{"Q2", "+", 
+       RowBox[{"m2", " ", "\[Xi]pr"}]}]]}]}]}], "}"}]], "Input",ExpressionUUID\
+->"62eec7b6-b371-4df0-bef0-74faa1a23824"],
+
+Cell[TextData[{
+ "m2 - the heavy-quark squared mass\nQ2 -  the squared virtuality of the \
+boson\ns = ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"q", "+", "p"}], ")"}], "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "7d673591-8ea7-4c48-b2d7-42e5dc0aad77"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox["s"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "fd003aa0-65bc-4d22-9a8f-6bd07031010a"],
+ "- the partonic center-of-mass energy"
+}], "Text",ExpressionUUID->"26efa8ed-8cf2-40c3-b790-81692030fb11"],
+
+Cell["\<\
+We use TAG[wmq1] to indicate the heavy quark initiated DIS \
+and\[LineSeparator]TAG[wmpq1] for the heavy antiquark initiated DIS. \
+\>", "Text",ExpressionUUID->"e9c0d627-a773-4b48-b4db-5b630a85a6b8"],
+
+Cell["\<\
+VCKM[CS] -> the CKM matrix element V_{cs}.
+VCKM[UD] -> the CKM matrix element V_{ud}.\
+\>", "Text",ExpressionUUID->"c3c07f50-a965-403c-b483-a016c0e82318"],
+
+Cell["THETA is the Heaviside function.", "Text",ExpressionUUID->"e5ba92d2-0109-4482-bed7-6e35e9ec7c58"],
+
+Cell["\<\
+SINGLET is a tag that indicates the contribution from sea-like diagrams with \
+a closed box fermion loop.\
+\>", "Text",ExpressionUUID->"6b4fc36c-318c-4a20-bff2-a1771b90b4f3"],
+
+Cell[TextData[{
+ "PD[a_] = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"[", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"Log", "[", 
+         SubscriptBox["y", "1"], "]"}], 
+        RowBox[{"a", "-", "1"}]], 
+       SubscriptBox["y", "1"]], "]"}], "+"], ",", " ", 
+    RowBox[{
+     RowBox[{"for", " ", "a"}], "=", "1"}], ",", "2", ",", "..."}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "5e060673-f486-40b4-bcc3-075cfa6245ad"],
+ "; ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"PD", "[", "0", "]"}], "=", 
+    RowBox[{"\[Delta]", "(", 
+     SubscriptBox["y", "1"]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "e1f1293c-0688-4a19-b5d9-a38bf9430251"],
+ ")."
+}], "Text",ExpressionUUID->"1e4f737a-b372-4af3-aae0-e48c11a6b8b3"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Coefficient Functions", "Title",ExpressionUUID->"a393e728-3ca1-4ced-9fdb-0b1e5c6350fa"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Quit", "[", "]"}], ";"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"7e21ef20-5f48-4a1f-b6aa-bfdd213d21ed"],
+
+Cell[CellGroupData[{
+
+Cell["Load storage file", "Chapter",ExpressionUUID->"e51f70a8-7473-473a-bb53-31b5adab4bac"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"30345a97-b3e8-473d-9e84-f847281ecb91"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<strFun.mx\>\"", "]"}], ";"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"db7a8060-4ec6-4618-aca1-c2a877addf5a"],
+
+Cell["Rule to replace the root u.", "Text",ExpressionUUID->"b9532ff3-7a9b-49bb-a542-bf68c1b59583"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ruleU", "=", 
+   RowBox[{"{", 
+    RowBox[{"u", "\[Rule]", 
+     RowBox[{"Sqrt", "[", 
+      FractionBox["y1", 
+       RowBox[{"y1", "-", 
+        RowBox[{"4", "y2"}]}]], "]"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"3ebc1051-ecfa-4cdd-9b63-62cbb8a9f9df"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Coefficient Function", "Chapter",ExpressionUUID->"820a692a-dded-4cfe-a8b2-53823b3c9f2d"],
+
+Cell["\<\
+There are some minor differences with the publication: 
+1)The indices of the coefficient functions differ,\[LineSeparator]2) we do \
+not present rules for soft-singular coefficients separately, but only the \
+rules for the color coefficients.\
+\>", "Text",ExpressionUUID->"fa8563a9-a308-4e15-a34a-9bd235f01e16"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Results at ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubsuperscriptBox["\[Mu]", "R", "2"], "=", 
+    RowBox[{
+     SubsuperscriptBox["\[Mu]", "F", "2"], "=", 
+     SuperscriptBox["Q", "2"]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "04e50bf1-58ba-45d0-a413-1d77d90553c4"]
+}], "Section",ExpressionUUID->"35795a2b-2fb6-498a-9406-4e77d8d10dbb"],
+
+Cell["The total C_1, C_2 and C_3 coefficient functions", "Text",ExpressionUUID->"745583bb-b6a7-4d7e-b36d-5f8213c1858a"],
+
+Cell[BoxData["totalPartonicCoefficientFunction"], "Input",
+ CellLabel->
+  "In[754]:=",ExpressionUUID->"f07e4fb9-dfbd-47b1-9fa3-01dba2642efe"],
+
+Cell[TextData[{
+ "Light coefficient rules: L= L[i,j,k]. \nHere, i = 1, 2, 3 is the index of \
+coefficient function,\nj =0,1,2 perturbative order,\nk = 1,...,4, the color \
+structure ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    SuperscriptBox["cF", "2"], ",", 
+    RowBox[{"cF", " ", "cA"}], " ", ",", " ", 
+    RowBox[{"nL", " ", "cF"}], ",", 
+    RowBox[{"nH", " ", "cF"}]}], " ", "}"}]], "Input",
+  CellChangeTimes->{{3.9765064589227877`*^9, 3.976506490092719*^9}, {
+   3.976506533376707*^9, 3.976506544109962*^9}},ExpressionUUID->
+  "8c2badb0-cd5b-4ad1-ba25-9e9824619688"],
+ ".\[LineSeparator]For light coefficient functions, only W^-+c - channel is \
+not zero (modulo charge symmetry)"
+}], "Text",ExpressionUUID->"942739b3-f260-44c2-9704-4115cae5abd9"],
+
+Cell[BoxData["LCoefRules"], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"5cbfb115-0c0e-4ac9-8ce6-dc6cf566acb1"],
+
+Cell[TextData[{
+ " H-heavy coefficient rules:  H= H[i,j,k,l]\nHere, i = 1,2,3 is the index of \
+heavy coefficient function,\nj = 2 perturbative order,\nk = 1,...,3, the \
+color structure ",
+ Cell[BoxData[
+  RowBox[{"{", " ", 
+   RowBox[{
+    RowBox[{"cF", 
+     RowBox[{"(", 
+      RowBox[{"cF", "-", 
+       FractionBox["cA", "2"]}], ")"}]}], ",", "cF", ",", 
+    RowBox[{"nH", " ", "cF"}]}], " ", "}"}]], "Input",
+  CellChangeTimes->{{3.9765064589227877`*^9, 3.976506490092719*^9}, {
+   3.976506533376707*^9, 3.976506544109962*^9}},ExpressionUUID->
+  "b81286b7-b28d-4423-b00d-7e72d8b042fc"],
+ "\nl =  1-> heavy quark,   2 ->heavy antiquark initiated DIS. "
+}], "Text",ExpressionUUID->"3280a3d4-c79a-47e0-8230-d6e716da8d15"],
+
+Cell[BoxData["HCoefRules"], "Input",
+ CellLabel->"",ExpressionUUID->"c9b9dada-9e12-47e1-9d69-d5b8c298edfa"],
+
+Cell[TextData[{
+ "K-heavy coefficient rules:  K= K[i,j,k,l]\nHere, i = 1,2,3 is the index of \
+heavy coefficient function,\nj = 2 perturbative order,\nk = 1, the color \
+structure ",
+ Cell[BoxData[
+  RowBox[{"{", "cF", "}"}]], "Input",
+  CellChangeTimes->{{3.9765064589227877`*^9, 3.976506490092719*^9}, {
+   3.976506533376707*^9, 3.976506544109962*^9}},ExpressionUUID->
+  "93c3ae05-9fdd-4dba-828b-382cfde7c644"],
+ "\nl =  1-> heavy quark,   2 ->heavy antiquark initiated DIS. "
+}], "Text",ExpressionUUID->"ff7f2564-df33-4a5e-a115-0b536622e21c"],
+
+Cell[BoxData["KCoefRules"], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"f3f9380a-0b5c-4810-ba37-3e6a5ad47d62"],
+
+Cell["\<\
+mapIteratedIntegrals contains mappings to Goncharov polylogarithms\
+\>", "Text",ExpressionUUID->"0ace55c0-6a2b-4861-9266-674ef789e874"],
+
+Cell[BoxData["mapIteratedIntegrals"], "Input",
+ CellLabel->"",ExpressionUUID->"2435b282-243b-4715-80c4-662fb242ac32"],
+
+Cell["To obtain the full result, simply use ", "Text",ExpressionUUID->"0feda23e-03b8-446f-843a-956dfe435f8a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"totalPartonicCoefficientFunction", "/.", "LCoefRules"}], "/.", 
+      "HCoefRules"}], "/.", "KCoefRules"}], "/.", "mapIteratedIntegrals"}], "/.",
+    "ruleU"}], ";"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"1aa2d0c8-c73d-4410-8034-40591065c8a8"],
+
+Cell["The result above can be evaluated using GiNaC.", "Text",ExpressionUUID->"8dcfc6ef-c650-4840-b8a5-00355bf255e1"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Evolution", "Section",ExpressionUUID->"3f171786-3484-4848-a9d1-71dcf230a8f4"],
+
+Cell["Apply LCoefRules here, if needed.", "Text",ExpressionUUID->"d2b20f9e-15d8-422a-ba4c-71856b591f65"],
+
+Cell[BoxData[{
+ RowBox[{"totalPartonicCoefficientFunction", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  SuperscriptBox["\[Alpha]r", "2"], " ", 
+  RowBox[{"TAG", "[", "wmq1", "]"}], 
+  RowBox[{"Log", "[", 
+   FractionBox[
+    SuperscriptBox["\[Mu]F", "2"], 
+    SuperscriptBox["Q", "2"]], "]"}], 
+  RowBox[{"(", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      FractionBox["11", "6"], "cA"}], "-", 
+     RowBox[{
+      FractionBox["4", "12"], " ", "nL"}]}], ")"}], ")"}], 
+  RowBox[{"Coefficient", "[", 
+   RowBox[{"%", ",", "\[Alpha]r", ",", "1"}], "]"}], 
+  RowBox[{"(*", 
+   RowBox[{"/.", "LCoefRules"}], "*)"}]}]}], "Input",
+ CellLabel->"In[9]:=",ExpressionUUID->"76fb20c1-ae59-479d-9f8e-ff03faa39e79"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["H-Heavy infrared counter term", "Section",ExpressionUUID->"59060e30-ddd6-4438-8680-e2af0b4c2fc1"],
+
+Cell["\<\
+The IR counter term is universal for C_1, C_2 and C_3 coefficient functions. \
+It is consists of two parts:\[LineSeparator]Taylor expansion\
+\>", "Text",ExpressionUUID->"6ebcf9ee-cdf4-4ea9-b5e8-e57d7080693a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"heavyIRCTTaylo", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["359", 
+       RowBox[{"108", " ", "y1"}]], "-", 
+      FractionBox[
+       RowBox[{"2", " ", "zeta2"}], 
+       RowBox[{"3", " ", "y1"}]], "+", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"Log", "[", "y1", "]"}], "2"], 
+       RowBox[{"3", " ", "y1"}]], "+", 
+      FractionBox[
+       RowBox[{"29", " ", 
+        RowBox[{"Log", "[", "y2", "]"}]}], 
+       RowBox[{"18", " ", "y1"}]], "+", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"Log", "[", "y2", "]"}], "2"], 
+       RowBox[{"3", " ", "y1"}]], "+", 
+      RowBox[{
+       RowBox[{"Log", "[", "y1", "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox["29", 
+           RowBox[{"18", " ", "y1"}]]}], "-", 
+         FractionBox[
+          RowBox[{"2", " ", 
+           RowBox[{"Log", "[", "y2", "]"}]}], 
+          RowBox[{"3", " ", "y1"}]]}], ")"}]}]}], ")"}], 
+    SuperscriptBox["\[Alpha]r", "2"], "cF", " ", "nH", " ", 
+    RowBox[{"TAG", "[", "wmq1", "]"}]}]}], ";"}]], "Input",ExpressionUUID->\
+"d2936ba1-6516-44bb-b6c1-eedbd66bd212"],
+
+Cell["Asymptotic expansion", "Text",ExpressionUUID->"ac47622b-a7fd-4520-8be1-bbe579b97f43"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"heavyIRCTAsymptotic", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             FractionBox["359", "54"]}], "+", 
+            FractionBox[
+             RowBox[{"4", " ", "zeta2"}], "3"]}], ")"}], " ", 
+          RowBox[{"Log", "[", "2", "]"}]}], "+", 
+         FractionBox[
+          RowBox[{"29", " ", 
+           SuperscriptBox[
+            RowBox[{"Log", "[", "2", "]"}], "2"]}], "9"], "-", 
+         FractionBox[
+          RowBox[{"8", " ", 
+           SuperscriptBox[
+            RowBox[{"Log", "[", "2", "]"}], "3"]}], "9"], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             FractionBox["359", "108"]}], "+", 
+            FractionBox[
+             RowBox[{"2", " ", "zeta2"}], "3"]}], ")"}], " ", 
+          RowBox[{"Log", "[", "y2", "]"}]}], "-", 
+         FractionBox[
+          RowBox[{"29", " ", 
+           SuperscriptBox[
+            RowBox[{"Log", "[", "y2", "]"}], "2"]}], "36"], "-", 
+         FractionBox[
+          SuperscriptBox[
+           RowBox[{"Log", "[", "y2", "]"}], "3"], "9"]}], ")"}], " ", 
+       RowBox[{"PD", "[", "0", "]"}]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["359", "108"], "-", 
+         FractionBox[
+          RowBox[{"2", " ", "zeta2"}], "3"], "+", 
+         FractionBox[
+          RowBox[{"29", " ", 
+           RowBox[{"Log", "[", "y2", "]"}]}], "18"], "+", 
+         FractionBox[
+          SuperscriptBox[
+           RowBox[{"Log", "[", "y2", "]"}], "2"], "3"]}], ")"}], " ", 
+       RowBox[{"PD", "[", "1", "]"}]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox["29", "18"]}], "-", 
+         FractionBox[
+          RowBox[{"2", " ", 
+           RowBox[{"Log", "[", "y2", "]"}]}], "3"]}], ")"}], " ", 
+       RowBox[{"PD", "[", "2", "]"}]}], "+", 
+      FractionBox[
+       RowBox[{"PD", "[", "3", "]"}], "3"]}], ")"}], " ", 
+    SuperscriptBox["\[Alpha]r", "2"], "cF", " ", "nH", " ", 
+    RowBox[{"TAG", "[", "wmq1", "]"}]}]}], ";"}]], "Input",ExpressionUUID->\
+"8da89e42-c471-4dbd-9da5-929f1d56a549"],
+
+Cell["\<\
+To apply it, we need to subtract the Taylor and then add the asymptotic \
+expansions. \
+\>", "Text",ExpressionUUID->"17df193f-a2f6-4b61-9747-9acc10072496"]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+},
+WindowSize->{1152., 927.5999999999999},
+WindowMargins->{{Automatic, 461.4000000000001}, {153, Automatic}},
+TrackCellChangeTimes->False,
+Magnification:>1.1 Inherited,
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]]}, Visible -> False, 
+  FrontEndVersion -> "12.1 for Linux x86 (64-bit) (March 18, 2020)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"285524ea-9f85-4984-bb6f-0193da9be43a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[1486, 35, 78, 0, 107, "Title",ExpressionUUID->"98620dcb-b19f-47ad-8179-76bc3b4a9ae9"],
+Cell[CellGroupData[{
+Cell[1589, 39, 83, 0, 76, "Chapter",ExpressionUUID->"384d1439-e438-4ec8-a6d4-574ccbdbc736"],
+Cell[1675, 41, 121, 0, 38, "Text",ExpressionUUID->"c3db4546-64de-4d22-85ae-bc0d3567ac4b"],
+Cell[CellGroupData[{
+Cell[1821, 45, 98, 0, 74, "Section",ExpressionUUID->"17668f86-1928-4c4f-8889-49f1042ab36c"],
+Cell[1922, 47, 282, 5, 63, "Text",ExpressionUUID->"4bca8eb6-d2eb-45a6-ac9f-dce2a22f4d26"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2241, 57, 79, 0, 58, "Section",ExpressionUUID->"6b92e068-2238-4a6f-9785-46ef51fa8348"],
+Cell[2323, 59, 274, 8, 38, "Text",ExpressionUUID->"143be534-fc7d-45a1-83ed-765d368a8533"],
+Cell[2600, 69, 363, 11, 52, "Input",ExpressionUUID->"9ef36154-46ca-439c-ae6f-90bce774575d"],
+Cell[2966, 82, 168, 3, 38, "Text",ExpressionUUID->"4cf9b6f6-3dcd-46fd-a840-81158441fbac"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3171, 90, 78, 0, 58, "Section",ExpressionUUID->"f8c2b3e0-b0bf-48d4-89cd-fcd2d626daca"],
+Cell[3252, 92, 214, 4, 63, "Text",ExpressionUUID->"e1f55d04-e6bd-4f96-a143-1ea498d477c5"],
+Cell[3469, 98, 291, 4, 63, "Text",ExpressionUUID->"7d6261ed-2bbb-4106-a7e2-2c11f663ddcd"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3797, 107, 93, 0, 58, "Section",ExpressionUUID->"8d18d157-7704-4e31-8c85-e2be31bb5897"],
+Cell[3893, 109, 427, 11, 59, "Text",ExpressionUUID->"a8b79342-8b6d-4d22-9f8a-f01549fe13f1"],
+Cell[4323, 122, 305, 4, 38, "Text",ExpressionUUID->"5a5553ca-ee72-4da8-aae4-348533f21ee0"],
+Cell[4631, 128, 341, 10, 51, "Input",ExpressionUUID->"62eec7b6-b371-4df0-bef0-74faa1a23824"],
+Cell[4975, 140, 589, 17, 90, "Text",ExpressionUUID->"26efa8ed-8cf2-40c3-b790-81692030fb11"],
+Cell[5567, 159, 209, 3, 63, "Text",ExpressionUUID->"e9c0d627-a773-4b48-b4db-5b630a85a6b8"],
+Cell[5779, 164, 164, 3, 63, "Text",ExpressionUUID->"c3c07f50-a965-403c-b483-a016c0e82318"],
+Cell[5946, 169, 103, 0, 38, "Text",ExpressionUUID->"e5ba92d2-0109-4482-bed7-6e35e9ec7c58"],
+Cell[6052, 171, 184, 3, 38, "Text",ExpressionUUID->"6b4fc36c-318c-4a20-bff2-a1771b90b4f3"],
+Cell[6239, 176, 836, 28, 48, "Text",ExpressionUUID->"1e4f737a-b372-4af3-aae0-e48c11a6b8b3"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[7136, 211, 93, 0, 78, "Title",ExpressionUUID->"a393e728-3ca1-4ced-9fdb-0b1e5c6350fa"],
+Cell[7232, 213, 148, 3, 32, "Input",ExpressionUUID->"7e21ef20-5f48-4a1f-b6aa-bfdd213d21ed"],
+Cell[CellGroupData[{
+Cell[7405, 220, 91, 0, 76, "Chapter",ExpressionUUID->"e51f70a8-7473-473a-bb53-31b5adab4bac"],
+Cell[7499, 222, 201, 4, 32, "Input",ExpressionUUID->"30345a97-b3e8-473d-9e84-f847281ecb91"],
+Cell[7703, 228, 168, 3, 32, "Input",ExpressionUUID->"db7a8060-4ec6-4618-aca1-c2a877addf5a"],
+Cell[7874, 233, 98, 0, 38, "Text",ExpressionUUID->"b9532ff3-7a9b-49bb-a542-bf68c1b59583"],
+Cell[7975, 235, 318, 9, 51, "Input",ExpressionUUID->"3ebc1051-ecfa-4cdd-9b63-62cbb8a9f9df"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8330, 249, 94, 0, 76, "Chapter",ExpressionUUID->"820a692a-dded-4cfe-a8b2-53823b3c9f2d"],
+Cell[8427, 251, 321, 5, 89, "Text",ExpressionUUID->"fa8563a9-a308-4e15-a34a-9bd235f01e16"],
+Cell[CellGroupData[{
+Cell[8773, 260, 394, 11, 74, "Section",ExpressionUUID->"35795a2b-2fb6-498a-9406-4e77d8d10dbb"],
+Cell[9170, 273, 119, 0, 38, "Text",ExpressionUUID->"745583bb-b6a7-4d7e-b36d-5f8213c1858a"],
+Cell[9292, 275, 141, 2, 32, "Input",ExpressionUUID->"f07e4fb9-dfbd-47b1-9fa3-01dba2642efe"],
+Cell[9436, 279, 761, 16, 141, "Text",ExpressionUUID->"942739b3-f260-44c2-9704-4115cae5abd9"],
+Cell[10200, 297, 114, 1, 32, "Input",ExpressionUUID->"5cbfb115-0c0e-4ac9-8ce6-dc6cf566acb1"],
+Cell[10317, 300, 725, 16, 143, "Text",ExpressionUUID->"3280a3d4-c79a-47e0-8230-d6e716da8d15"],
+Cell[11045, 318, 107, 1, 32, "Input",ExpressionUUID->"c9b9dada-9e12-47e1-9d69-d5b8c298edfa"],
+Cell[11155, 321, 545, 10, 139, "Text",ExpressionUUID->"ff7f2564-df33-4a5e-a115-0b536622e21c"],
+Cell[11703, 333, 114, 1, 32, "Input",ExpressionUUID->"f3f9380a-0b5c-4810-ba37-3e6a5ad47d62"],
+Cell[11820, 336, 145, 2, 38, "Text",ExpressionUUID->"0ace55c0-6a2b-4861-9266-674ef789e874"],
+Cell[11968, 340, 117, 1, 32, "Input",ExpressionUUID->"2435b282-243b-4715-80c4-662fb242ac32"],
+Cell[12088, 343, 109, 0, 38, "Text",ExpressionUUID->"0feda23e-03b8-446f-843a-956dfe435f8a"],
+Cell[12200, 345, 344, 9, 32, "Input",ExpressionUUID->"1aa2d0c8-c73d-4410-8034-40591065c8a8"],
+Cell[12547, 356, 117, 0, 38, "Text",ExpressionUUID->"8dcfc6ef-c650-4840-b8a5-00355bf255e1"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12701, 361, 83, 0, 74, "Section",ExpressionUUID->"3f171786-3484-4848-a9d1-71dcf230a8f4"],
+Cell[12787, 363, 104, 0, 38, "Text",ExpressionUUID->"d2b20f9e-15d8-422a-ba4c-71856b591f65"],
+Cell[12894, 365, 706, 20, 80, "Input",ExpressionUUID->"76fb20c1-ae59-479d-9f8e-ff03faa39e79"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[13637, 390, 103, 0, 58, "Section",ExpressionUUID->"59060e30-ddd6-4438-8680-e2af0b4c2fc1"],
+Cell[13743, 392, 218, 3, 63, "Text",ExpressionUUID->"6ebcf9ee-cdf4-4ea9-b5e8-e57d7080693a"],
+Cell[13964, 397, 1188, 36, 55, "Input",ExpressionUUID->"d2936ba1-6516-44bb-b6c1-eedbd66bd212"],
+Cell[15155, 435, 91, 0, 38, "Text",ExpressionUUID->"ac47622b-a7fd-4520-8be1-bbe579b97f43"],
+Cell[15249, 437, 2285, 67, 128, "Input",ExpressionUUID->"8da89e42-c471-4dbd-9da5-929f1d56a549"],
+Cell[17537, 506, 165, 3, 38, "Text",ExpressionUUID->"17df193f-a2f6-4b61-9747-9acc10072496"]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}
+]
+*)
+
