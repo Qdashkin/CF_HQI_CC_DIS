@@ -23,10 +23,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[      1064,         20]
-NotebookDataLength[     23353,        615]
-NotebookOptionsPosition[     18195,        530]
-NotebookOutlinePosition[     18880,        552]
-CellTagsIndexPosition[     18837,        549]
+NotebookDataLength[     26818,        695]
+NotebookOptionsPosition[     21996,        612]
+NotebookOutlinePosition[     22660,        634]
+CellTagsIndexPosition[     22617,        631]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -67,6 +67,8 @@ Cell[TextData[{
  "\[Equivalent]NC=3)"
 }], "Text",ExpressionUUID->"143be534-fc7d-45a1-83ed-765d368a8533"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
@@ -77,8 +79,23 @@ Cell[BoxData[
      RowBox[{"2", "NC"}]]}], ",", 
    RowBox[{"cA", "\[Rule]", "NC"}], ",", " ", 
    RowBox[{"tR", "\[Rule]", 
-    RowBox[{"1", "/", "2"}]}]}], "}"}]], "Input",ExpressionUUID->"9ef36154-\
-46ca-439c-ae6f-90bce774575d"],
+    RowBox[{"1", "/", "2"}]}]}], "}"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"9ef36154-46ca-439c-ae6f-90bce774575d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"cF", "\[Rule]", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      SuperscriptBox["NC", "2"]}], 
+     RowBox[{"2", " ", "NC"}]]}], ",", 
+   RowBox[{"cA", "\[Rule]", "NC"}], ",", 
+   RowBox[{"tR", "\[Rule]", 
+    FractionBox["1", "2"]}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",ExpressionUUID->"384dab64-8dc7-4073-97dd-f36af19c2f20"]
+}, Closed]],
 
 Cell["\<\
 tR is everywhere replaced by its value in the coefficients and here only for \
@@ -105,77 +122,76 @@ mentioned in the paper. \[LineSeparator]They are mapped to the GPLs via \
 
 Cell[CellGroupData[{
 
-Cell["Variables and other", "Section",ExpressionUUID->"8d18d157-7704-4e31-8c85-e2be31bb5897"],
+Cell["Other", "Section",ExpressionUUID->"8d18d157-7704-4e31-8c85-e2be31bb5897"],
 
 Cell[TextData[{
- "The definition of the variables is defined in the paper.\[LineSeparator]",
+ "The definition of the variables is defined in the paper.\n\
+\[LineSeparator]",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"y1", "->", 
      SubscriptBox["y", "1"]}], ",", 
     RowBox[{"y2", "->", 
-     SubscriptBox["y", "2"]}]}], TraditionalForm]],
-  FormatType->"TraditionalForm",ExpressionUUID->
-  "69a868fc-0472-4768-9f61-514fb5062d8f"]
-}], "Text",ExpressionUUID->"a8b79342-8b6d-4d22-9f8a-f01549fe13f1"],
-
-Cell["\<\
-They can be mapped to the \[Xi]\[CloseCurlyQuote](\[Xi]pr) defined in \
-Kretzer, S. and Schienbein, I. \[OpenCurlyDoubleQuote]Heavy quark initiated \
-contributions to deep inelastic structure functions\[CloseCurlyDoubleQuote].\
-\>", "Text",ExpressionUUID->"5a5553ca-ee72-4da8-aae4-348533f21ee0"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"y1", "\[Rule]", 
-    RowBox[{"1", "-", "\[Xi]pr"}]}], ",", 
-   RowBox[{"y2", "\[Rule]", 
-    RowBox[{"m2", " ", 
-     FractionBox["\[Xi]pr", 
-      RowBox[{"Q2", "+", 
-       RowBox[{"m2", " ", "\[Xi]pr"}]}]]}]}]}], "}"}]], "Input",ExpressionUUID\
-->"62eec7b6-b371-4df0-bef0-74faa1a23824"],
-
-Cell[TextData[{
- "m2 - the heavy-quark squared mass\nQ2 -  the squared virtuality of the \
-boson\ns = ",
+     SubscriptBox["y", "2"]}]}], TraditionalForm]],ExpressionUUID->
+  "5cd2db81-e6cd-4b30-a7dd-39dc9f2a68d5"],
+ "\n\nThey can be mapped to the \[Xi]\[CloseCurlyQuote](\[Xi]pr) defined in \
+Ref.~[1].\n\n",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"y1", "\[Rule]", 
+     RowBox[{"1", "-", "\[Xi]pr"}]}], ",", 
+    RowBox[{"y2", "\[Rule]", 
+     RowBox[{"m2", " ", 
+      FractionBox["\[Xi]pr", 
+       RowBox[{"Q2", "+", 
+        RowBox[{"m2", " ", "\[Xi]pr"}]}]]}]}]}], "}"}]], "Input",
+  ExpressionUUID->"61644dbb-7543-40ce-8cf5-4cafc604ed37"],
+ "\n\n\[Xi]pr is related to the \[Xi]-scaling variable from Ref[1] in our \
+case via\n\n",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{"\[Xi]pr", "\[Rule]", 
+    FractionBox["x", "\[Xi]"]}], "}"}]], "Input",ExpressionUUID->
+  "1a1a9b38-b4c5-481d-9e75-a2c44b089e94"],
+ ",\n\nwhere x is Bjorken-x. \nNOTE: we drop \[OpenCurlyQuote]pr\
+\[CloseCurlyDoubleQuote] bit and use plane \[Xi] instead in our calculations \
+but this is not the ACOT\[CloseCurlyQuote]s \[Xi].\n\nHere, m2 - the \
+heavy-quark squared mass, Q2 -  the squared virtuality of the boson, s = ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
     RowBox[{"(", 
-     RowBox[{"q", "+", "p"}], ")"}], "2"], TraditionalForm]],
-  FormatType->"TraditionalForm",ExpressionUUID->
-  "7d673591-8ea7-4c48-b2d7-42e5dc0aad77"],
+     RowBox[{"q", "+", "p"}], ")"}], "2"], TraditionalForm]],ExpressionUUID->
+  "f63de376-41a5-4804-9c57-3e759371844b"],
  ", ",
  Cell[BoxData[
   FormBox[
-   SqrtBox["s"], TraditionalForm]],
-  FormatType->"TraditionalForm",ExpressionUUID->
-  "fd003aa0-65bc-4d22-9a8f-6bd07031010a"],
- "- the partonic center-of-mass energy"
-}], "Text",ExpressionUUID->"26efa8ed-8cf2-40c3-b790-81692030fb11"],
-
-Cell["\<\
-We use TAG[wmq1] to indicate the heavy quark initiated DIS \
-and\[LineSeparator]TAG[wmpq1] for the heavy antiquark initiated DIS. \
-\>", "Text",ExpressionUUID->"e9c0d627-a773-4b48-b4db-5b630a85a6b8"],
-
-Cell["\<\
-VCKM[CS] -> the CKM matrix element V_{cs}.
-VCKM[UD] -> the CKM matrix element V_{ud}.\
-\>", "Text",ExpressionUUID->"c3c07f50-a965-403c-b483-a016c0e82318"],
-
-Cell["THETA is the Heaviside function.", "Text",ExpressionUUID->"e5ba92d2-0109-4482-bed7-6e35e9ec7c58"],
-
-Cell["\<\
-SINGLET is a tag that indicates the contribution from sea-like diagrams with \
-a closed box fermion loop.\
-\>", "Text",ExpressionUUID->"6b4fc36c-318c-4a20-bff2-a1771b90b4f3"],
-
-Cell[TextData[{
- "PD[a_] = ",
+   SqrtBox["s"], TraditionalForm]],ExpressionUUID->
+  "a0b9fa17-3566-4760-9a94-ff10d04bf500"],
+ "- the partonic center-of-mass energy.\n\n- TAG[wmq1] \[Rule] the \
+heavy-quark initiated DIS;\n- TAG[wmpq1] \[Rule] the heavy-antiquark \
+initiated DIS.\n\nTHETA is the Heaviside function that designate a particle \
+production thresholds: single heavy particle (s - m^2) and heavy pair (s - \
+4m^2).\n\nVCKM[CS] -> the CKM matrix element V_{cs}.\nVCKM[UD] -> the CKM \
+matrix element V_{ud}.\nSINGLET is a tag that indicates the contribution from \
+sea-like diagrams with a closed box fermion loop.\n\nIn case of VCKM[CS], the \
+diagrams includes two flavors: heavy and light; VCKM[UD] correspond to one \
+flavor only in the fermion loop.\[LineSeparator]Thus, it is  up to the user \
+how to sum over the flavors at this point. The substitution below correctly \
+reproduce\[LineSeparator]the MSbar result in the m^2/Q^2 \[Rule] 0 limit\n\n\
+VCKM[UD]^2 * SINGLET -> VCKM[UD]^2 * (nL+nH)/2,\n\nUsing these rules, we \
+correctly reproduce the pure-singlet contribution ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["T", 
+    RowBox[{"i", ",", " ", "q"}], 
+    RowBox[{
+     RowBox[{"(", "2", ")"}], ",", " ", "ps"}]], TraditionalForm]],
+  ExpressionUUID->"7b391876-6256-4c37-82e3-124643224561"],
+ " from Ref.~[3], in the m/Q\[Rule]0 limit. \n\nThe plus distributions read \
+in our case\nPD[a_] = ",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -189,23 +205,50 @@ Cell[TextData[{
        SubscriptBox["y", "1"]], "]"}], "+"], ",", " ", 
     RowBox[{
      RowBox[{"for", " ", "a"}], "=", "1"}], ",", "2", ",", "..."}], 
-   TraditionalForm]],
-  FormatType->"TraditionalForm",ExpressionUUID->
-  "5e060673-f486-40b4-bcc3-075cfa6245ad"],
+   TraditionalForm]],ExpressionUUID->"599ec9a9-9079-4388-9546-8951d90833d5"],
  "; ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"PD", "[", "0", "]"}], "=", 
     RowBox[{"\[Delta]", "(", 
-     SubscriptBox["y", "1"]}]}], TraditionalForm]],
-  FormatType->"TraditionalForm",ExpressionUUID->
-  "e1f1293c-0688-4a19-b5d9-a38bf9430251"],
- ")."
-}], "Text",ExpressionUUID->"1e4f737a-b372-4af3-aae0-e48c11a6b8b3"]
+     SubscriptBox["y", "1"]}]}], TraditionalForm]],ExpressionUUID->
+  "ad084284-4cf0-47ee-b1d8-f9048985c9c1"],
+ ").\nor if \[Xi] is used\n\nPD[a_] = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"[", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"Log", "[", 
+         RowBox[{"1", "-", "\[Xi]"}], "]"}], 
+        RowBox[{"a", "-", "1"}]], 
+       RowBox[{"1", "-", "\[Xi]"}]], "]"}], "+"], ",", " ", 
+    RowBox[{
+     RowBox[{"for", " ", "a"}], "=", "1"}], ",", "2", ",", "..."}], 
+   TraditionalForm]],ExpressionUUID->"e59e0865-c275-4e7a-9522-1b2e19fd470c"],
+ "; ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"PD", "[", "0", "]"}], "=", 
+    RowBox[{"\[Delta]", "(", 
+     RowBox[{"1", "-", "\[Xi]"}]}]}], TraditionalForm]],ExpressionUUID->
+  "5f836805-cebf-4c29-b354-bf0e3468cc0a"],
+ ").\n\nCitations:\n[1] - Kretzer, S. and Schienbein, I. \
+\[OpenCurlyDoubleQuote]Heavy quark initiated contributions to deep inelastic \
+structure functions\[CloseCurlyDoubleQuote];\n[2] - ACOT, \
+\[OpenCurlyDoubleQuote]Leptoproduction of heavy quarks. 1. General formalism \
+and kinematics of charged current and neutral current production processes\
+\[CloseCurlyDoubleQuote];\n[3] - S. Moch, J.A.M. Vermaseren, \
+\[OpenCurlyDoubleQuote]Deep-inelastic structure functions at two loops\
+\[CloseCurlyDoubleQuote]."
+}], "Text",ExpressionUUID->"a8b79342-8b6d-4d22-9f8a-f01549fe13f1"]
 }, Closed]]
 }, Closed]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -214,7 +257,7 @@ Cell["Coefficient Functions", "Title",ExpressionUUID->"a393e728-3ca1-4ced-9fdb-0
 Cell[BoxData[
  RowBox[{
   RowBox[{"Quit", "[", "]"}], ";"}]], "Input",
- CellLabel->"In[12]:=",ExpressionUUID->"7e21ef20-5f48-4a1f-b6aa-bfdd213d21ed"],
+ CellLabel->"In[3]:=",ExpressionUUID->"7e21ef20-5f48-4a1f-b6aa-bfdd213d21ed"],
 
 Cell[CellGroupData[{
 
@@ -224,14 +267,14 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"SetDirectory", "[", 
    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
- CellLabel->"In[1]:=",ExpressionUUID->"30345a97-b3e8-473d-9e84-f847281ecb91"],
+ CellLabel->"In[1]:=",ExpressionUUID->"d6d57742-06f6-4c11-8233-70b8b806608f"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"Get", "[", "\"\<strFun.mx\>\"", "]"}], ";"}]], "Input",
  CellLabel->"In[2]:=",ExpressionUUID->"db7a8060-4ec6-4618-aca1-c2a877addf5a"],
 
-Cell["Rule to replace the root u.", "Text",ExpressionUUID->"b9532ff3-7a9b-49bb-a542-bf68c1b59583"],
+Cell["Rule to replace the variable u with its definition:", "Text",ExpressionUUID->"b9532ff3-7a9b-49bb-a542-bf68c1b59583"],
 
 Cell[BoxData[
  RowBox[{
@@ -244,6 +287,8 @@ Cell[BoxData[
         RowBox[{"4", "y2"}]}]], "]"}]}], "}"}]}], ";"}]], "Input",
  CellLabel->"In[3]:=",ExpressionUUID->"3ebc1051-ecfa-4cdd-9b63-62cbb8a9f9df"],
 
+Cell["The leading order result:", "Text",ExpressionUUID->"051201cb-b520-47b8-b61b-968b9d13080f"],
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"loResult", "=", 
@@ -252,9 +297,25 @@ Cell[BoxData[
      FractionBox["Splus", "2"], ",", 
      FractionBox[
       RowBox[{"Splus", " ", "xBj"}], 
-      RowBox[{"1", "-", "\[Beta]"}]], ",", 
+      RowBox[{"1", "-", "y2"}]], ",", 
      RowBox[{"2", " ", "Rplus"}]}], "}"}]}], ";"}]], "Input",
- CellLabel->"In[4]:=",ExpressionUUID->"d091d4b1-29ed-4384-95d3-e41c34411f84"]
+ CellLabel->"In[4]:=",ExpressionUUID->"d091d4b1-29ed-4384-95d3-e41c34411f84"],
+
+Cell["The zeta values", "Text",ExpressionUUID->"c235b3b3-2231-42ca-a989-ad7fa1c59b79"],
+
+Cell[BoxData[
+ RowBox[{"zetaValues", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"zeta2", "\[Rule]", 
+     FractionBox[
+      SuperscriptBox["\[Pi]", "2"], "6"]}], ",", 
+    RowBox[{"zeta3", "\[Rule]", 
+     RowBox[{"Zeta", "[", "3", "]"}]}], ",", 
+    RowBox[{"zeta4", "\[Rule]", 
+     FractionBox[
+      SuperscriptBox["\[Pi]", "4"], "90"]}]}], "}"}]}]], "Input",ExpressionUUI\
+D->"acdde36a-1369-4ee2-9360-6593b728743f"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -278,26 +339,23 @@ Cell[TextData[{
     SubsuperscriptBox["\[Mu]", "R", "2"], "=", 
     RowBox[{
      SubsuperscriptBox["\[Mu]", "F", "2"], "=", 
-     SuperscriptBox["Q", "2"]}]}], TraditionalForm]],
-  FormatType->"TraditionalForm",ExpressionUUID->
+     SuperscriptBox["Q", "2"]}]}], TraditionalForm]],ExpressionUUID->
   "04e50bf1-58ba-45d0-a413-1d77d90553c4"]
 }], "Section",ExpressionUUID->"35795a2b-2fb6-498a-9406-4e77d8d10dbb"],
 
 Cell["The total C_1, C_2 and C_3 coefficient functions", "Text",ExpressionUUID->"745583bb-b6a7-4d7e-b36d-5f8213c1858a"],
 
-Cell[BoxData["totalPartonicCoefficientFunction"], "Input",
- CellLabel->
-  "In[754]:=",ExpressionUUID->"f07e4fb9-dfbd-47b1-9fa3-01dba2642efe"],
+Cell[BoxData["totalPartonicCoefficientFunction"], "Input",ExpressionUUID->"356dacf6-e30e-4ab6-adde-b6d898e66278"],
 
 Cell[TextData[{
- "Light coefficient rules: L= L[i,j,k]. \nHere, i = 1, 2, 3 is the index of \
-coefficient function,\nj =0,1,2 perturbative order,\nk = 1,...,4, the color \
-structure ",
+ "LL - Light coefficient rules (only light flavors in the final state): LL= \
+LL[i,j,k]. \nHere, i = 1, 2, 3 is the index of coefficient function,\nj \
+=0,1,2 perturbative order,\nk = 1,...,4, the color structure ",
  Cell[BoxData[
   RowBox[{"{", 
    RowBox[{
     SuperscriptBox["cF", "2"], ",", 
-    RowBox[{"cF", " ", "cA"}], " ", ",", " ", 
+    RowBox[{"cF", " ", "cA"}], " ", ",", 
     RowBox[{"nL", " ", "cF"}], ",", 
     RowBox[{"nH", " ", "cF"}]}], " ", "}"}]], "Input",
   CellChangeTimes->{{3.9765064589227877`*^9, 3.976506490092719*^9}, {
@@ -307,13 +365,13 @@ structure ",
 not zero (modulo charge symmetry)"
 }], "Text",ExpressionUUID->"942739b3-f260-44c2-9704-4115cae5abd9"],
 
-Cell[BoxData["LCoefRules"], "Input",
- CellLabel->"In[4]:=",ExpressionUUID->"5cbfb115-0c0e-4ac9-8ce6-dc6cf566acb1"],
+Cell[BoxData["LLCoefRules"], "Input",
+ CellLabel->"In[8]:=",ExpressionUUID->"5cbfb115-0c0e-4ac9-8ce6-dc6cf566acb1"],
 
 Cell[TextData[{
- " H-heavy coefficient rules:  H= H[i,j,k,l]\nHere, i = 1,2,3 is the index of \
-heavy coefficient function,\nj = 2 perturbative order,\nk = 1,...,3, the \
-color structure ",
+ "HH-heavy coefficient rules (two heavy flavors in the final state):  H= \
+H[i,j,k,l]\nHere, i = 1,2,3 is the index of heavy coefficient function,\nj = \
+2 perturbative order,\nk = 1,...,3, the color structure ",
  Cell[BoxData[
   RowBox[{"{", " ", 
    RowBox[{
@@ -328,13 +386,13 @@ color structure ",
  "\nl =  1-> heavy quark,   2 ->heavy antiquark initiated DIS. "
 }], "Text",ExpressionUUID->"3280a3d4-c79a-47e0-8230-d6e716da8d15"],
 
-Cell[BoxData["HCoefRules"], "Input",
- CellLabel->"",ExpressionUUID->"c9b9dada-9e12-47e1-9d69-d5b8c298edfa"],
+Cell[BoxData["HHCoefRules"], "Input",
+ CellLabel->"In[10]:=",ExpressionUUID->"592b7fbd-4331-4535-9553-d1d55ea04eeb"],
 
 Cell[TextData[{
- "K-heavy coefficient rules:  K= K[i,j,k,l]\nHere, i = 1,2,3 is the index of \
-heavy coefficient function,\nj = 2 perturbative order,\nk = 1, the color \
-structure ",
+ "KK - heavy coefficient rules (one heavy flavor in the final state):  KK= \
+KK[i,j,k,l]\nHere, i = 1,2,3 is the index of heavy coefficient function,\nj = \
+2 perturbative order,\nk = 1, the color structure ",
  Cell[BoxData[
   RowBox[{"{", "cF", "}"}]], "Input",
   CellChangeTimes->{{3.9765064589227877`*^9, 3.976506490092719*^9}, {
@@ -343,68 +401,92 @@ structure ",
  "\nl =  1-> heavy quark,   2 ->heavy antiquark initiated DIS. "
 }], "Text",ExpressionUUID->"ff7f2564-df33-4a5e-a115-0b536622e21c"],
 
-Cell[BoxData["KCoefRules"], "Input",
- CellLabel->"In[5]:=",ExpressionUUID->"f3f9380a-0b5c-4810-ba37-3e6a5ad47d62"],
+Cell[BoxData["KKCoefRules"], "Input",ExpressionUUID->"c3f33690-ba94-4b25-8455-04f1f415c6b5"],
 
 Cell["\<\
-mapIteratedIntegrals contains mappings to Goncharov polylogarithms\
+mapIteratedIntegrals contains mappings of iterated integrals to Goncharov \
+polylogarithms\
 \>", "Text",ExpressionUUID->"0ace55c0-6a2b-4861-9266-674ef789e874"],
 
 Cell[BoxData["mapIteratedIntegrals"], "Input",
  CellLabel->"",ExpressionUUID->"2435b282-243b-4715-80c4-662fb242ac32"],
 
-Cell["\<\
-To obtain the full result, simply use (mind the LO result in the front which \
-is completely factorized)\
-\>", "Text",ExpressionUUID->"0feda23e-03b8-446f-843a-956dfe435f8a"],
+Cell[TextData[{
+ "To obtain the coefficient functions at ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Mu]", "R"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "94359d98-2f04-472b-ac86-90d77e4df966"],
+ "=Q , simply use:"
+}], "Text",ExpressionUUID->"0feda23e-03b8-446f-843a-956dfe435f8a"],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{
+  RowBox[{"strFuns", "=", 
+   RowBox[{"(*", "loResult", "*)"}], " ", 
    RowBox[{
     RowBox[{
      RowBox[{
       RowBox[{
-       RowBox[{"loResult", " ", "totalPartonicCoefficientFunction"}], "/.", 
-       "LCoefRules"}], "/.", "HCoefRules"}], "/.", "KCoefRules"}], "/.", 
-    "mapIteratedIntegrals"}], "/.", "ruleU"}], ";"}]], "Input",ExpressionUUID->\
-"1aa2d0c8-c73d-4410-8034-40591065c8a8"],
+       RowBox[{"totalPartonicCoefficientFunction", "/.", "LLCoefRules"}], "/.",
+        "HHCoefRules"}], "/.", "KKCoefRules"}], "/.", 
+     "mapIteratedIntegrals"}], "/.", "ruleU"}]}], ";"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"1aa2d0c8-c73d-4410-8034-40591065c8a8"],
 
-Cell["The result above can be evaluated using GiNaC.", "Text",ExpressionUUID->"8dcfc6ef-c650-4840-b8a5-00355bf255e1"]
+Cell[TextData[{
+ "By default, the coefficient functions include the IR counter-term \
+(Eq.~(4.15) from the corresponding paper. To remove it,\[LineSeparator]simply \
+reverse the regularization, i.e. add back the  naive Taylor expansion and \
+subtract the asymptotic expansion in the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["y", "1"], "\[Rule]", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "4402f9d9-3758-485a-a8a8-de610e6410c6"],
+ " limit\[LineSeparator](see \[OpenCurlyDoubleQuote]Heavy infrared counter \
+term below\[CloseCurlyDoubleQuote])."
+}], "Text",ExpressionUUID->"8dcfc6ef-c650-4840-b8a5-00355bf255e1"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Evolution", "Section",ExpressionUUID->"3f171786-3484-4848-a9d1-71dcf230a8f4"],
+Cell["Restoring the scale dependence", "Section",ExpressionUUID->"3f171786-3484-4848-a9d1-71dcf230a8f4"],
 
-Cell["Apply LCoefRules here, if needed.", "Text",ExpressionUUID->"d2b20f9e-15d8-422a-ba4c-71856b591f65"],
+Cell["\<\
+Here, we reproduce Eq.~(4.8) from the corresponding paper in the decoupling \
+scheme.\
+\>", "Text",ExpressionUUID->"d2b20f9e-15d8-422a-ba4c-71856b591f65"],
 
 Cell[BoxData[{
  RowBox[{"totalPartonicCoefficientFunction", ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  SuperscriptBox["\[Alpha]r", "2"], " ", 
-  RowBox[{"TAG", "[", "wmq1", "]"}], 
-  RowBox[{"Log", "[", 
-   FractionBox[
-    SuperscriptBox["\[Mu]F", "2"], 
-    SuperscriptBox["Q", "2"]], "]"}], 
-  RowBox[{"(", 
-   RowBox[{"(", 
+  RowBox[{"totalPartonicCoefficientFunctionmu", "=", 
+   RowBox[{"%", "+", 
     RowBox[{
-     RowBox[{
-      FractionBox["11", "6"], "cA"}], "-", 
-     RowBox[{
-      FractionBox["4", "12"], " ", "nL"}]}], ")"}], ")"}], 
-  RowBox[{"Coefficient", "[", 
-   RowBox[{"%", ",", "\[Alpha]r", ",", "1"}], "]"}], 
+     SuperscriptBox["\[Alpha]r", "2"], " ", 
+     RowBox[{"Log", "[", 
+      FractionBox[
+       SuperscriptBox["\[Mu]R", "2"], 
+       SuperscriptBox["Q", "2"]], "]"}], 
+     RowBox[{"(", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         FractionBox["11", "6"], "cA"}], "-", 
+        RowBox[{
+         FractionBox["4", "12"], " ", "nL"}]}], ")"}], ")"}], 
+     RowBox[{"Coefficient", "[", 
+      RowBox[{"%", ",", "\[Alpha]r", ",", "1"}], "]"}]}]}]}], 
   RowBox[{"(*", 
-   RowBox[{"/.", "LCoefRules"}], "*)"}]}]}], "Input",
- CellLabel->"In[9]:=",ExpressionUUID->"76fb20c1-ae59-479d-9f8e-ff03faa39e79"]
+   RowBox[{"/.", "LCoefRules"}], "*)"}], ";"}]}], "Input",ExpressionUUID->\
+"76fb20c1-ae59-479d-9f8e-ff03faa39e79"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["H-Heavy infrared counter term", "Section",ExpressionUUID->"59060e30-ddd6-4438-8680-e2af0b4c2fc1"],
+Cell["HH-Heavy infrared counter term", "Section",ExpressionUUID->"59060e30-ddd6-4438-8680-e2af0b4c2fc1"],
 
 Cell["\<\
 The IR counter term is universal for C_1, C_2 and C_3 coefficient functions. \
@@ -528,10 +610,10 @@ expansions. \
 }, Closed]]
 }, Closed]]
 },
-WindowSize->{1152., 927.5999999999999},
-WindowMargins->{{Automatic, 461.4000000000001}, {132, Automatic}},
+WindowSize->{1920., 1059.75},
+WindowMargins->{{0, Automatic}, {Automatic, -1599.75}},
 TrackCellChangeTimes->False,
-Magnification:>1.1 Inherited,
+Magnification:>1.2 Inherited,
 FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
 StyleDefinitions->Notebook[{
    Cell[
@@ -552,81 +634,79 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[1486, 35, 78, 0, 107, "Title",ExpressionUUID->"98620dcb-b19f-47ad-8179-76bc3b4a9ae9"],
+Cell[1486, 35, 78, 0, 117, "Title",ExpressionUUID->"98620dcb-b19f-47ad-8179-76bc3b4a9ae9"],
 Cell[CellGroupData[{
-Cell[1589, 39, 83, 0, 76, "Chapter",ExpressionUUID->"384d1439-e438-4ec8-a6d4-574ccbdbc736"],
-Cell[1675, 41, 121, 0, 38, "Text",ExpressionUUID->"c3db4546-64de-4d22-85ae-bc0d3567ac4b"],
+Cell[1589, 39, 83, 0, 83, "Chapter",ExpressionUUID->"384d1439-e438-4ec8-a6d4-574ccbdbc736"],
+Cell[1675, 41, 121, 0, 42, "Text",ExpressionUUID->"c3db4546-64de-4d22-85ae-bc0d3567ac4b"],
 Cell[CellGroupData[{
-Cell[1821, 45, 98, 0, 74, "Section",ExpressionUUID->"17668f86-1928-4c4f-8889-49f1042ab36c"],
-Cell[1922, 47, 282, 5, 63, "Text",ExpressionUUID->"4bca8eb6-d2eb-45a6-ac9f-dce2a22f4d26"]
+Cell[1821, 45, 98, 0, 80, "Section",ExpressionUUID->"17668f86-1928-4c4f-8889-49f1042ab36c"],
+Cell[1922, 47, 282, 5, 69, "Text",ExpressionUUID->"4bca8eb6-d2eb-45a6-ac9f-dce2a22f4d26"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[2241, 57, 79, 0, 58, "Section",ExpressionUUID->"6b92e068-2238-4a6f-9785-46ef51fa8348"],
-Cell[2323, 59, 274, 8, 38, "Text",ExpressionUUID->"143be534-fc7d-45a1-83ed-765d368a8533"],
-Cell[2600, 69, 363, 11, 52, "Input",ExpressionUUID->"9ef36154-46ca-439c-ae6f-90bce774575d"],
-Cell[2966, 82, 168, 3, 38, "Text",ExpressionUUID->"4cf9b6f6-3dcd-46fd-a840-81158441fbac"]
+Cell[2241, 57, 79, 0, 62, "Section",ExpressionUUID->"6b92e068-2238-4a6f-9785-46ef51fa8348"],
+Cell[2323, 59, 274, 8, 42, "Text",ExpressionUUID->"143be534-fc7d-45a1-83ed-765d368a8533"],
+Cell[CellGroupData[{
+Cell[2622, 71, 384, 11, 56, "Input",ExpressionUUID->"9ef36154-46ca-439c-ae6f-90bce774575d"],
+Cell[3009, 84, 405, 12, 58, "Output",ExpressionUUID->"384dab64-8dc7-4073-97dd-f36af19c2f20"]
+}, Closed]],
+Cell[3429, 99, 168, 3, 42, "Text",ExpressionUUID->"4cf9b6f6-3dcd-46fd-a840-81158441fbac"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[3171, 90, 78, 0, 58, "Section",ExpressionUUID->"f8c2b3e0-b0bf-48d4-89cd-fcd2d626daca"],
-Cell[3252, 92, 214, 4, 63, "Text",ExpressionUUID->"e1f55d04-e6bd-4f96-a143-1ea498d477c5"],
-Cell[3469, 98, 291, 4, 63, "Text",ExpressionUUID->"7d6261ed-2bbb-4106-a7e2-2c11f663ddcd"]
+Cell[3634, 107, 78, 0, 62, "Section",ExpressionUUID->"f8c2b3e0-b0bf-48d4-89cd-fcd2d626daca"],
+Cell[3715, 109, 214, 4, 69, "Text",ExpressionUUID->"e1f55d04-e6bd-4f96-a143-1ea498d477c5"],
+Cell[3932, 115, 291, 4, 69, "Text",ExpressionUUID->"7d6261ed-2bbb-4106-a7e2-2c11f663ddcd"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[3797, 107, 93, 0, 58, "Section",ExpressionUUID->"8d18d157-7704-4e31-8c85-e2be31bb5897"],
-Cell[3893, 109, 427, 11, 59, "Text",ExpressionUUID->"a8b79342-8b6d-4d22-9f8a-f01549fe13f1"],
-Cell[4323, 122, 305, 4, 38, "Text",ExpressionUUID->"5a5553ca-ee72-4da8-aae4-348533f21ee0"],
-Cell[4631, 128, 341, 10, 51, "Input",ExpressionUUID->"62eec7b6-b371-4df0-bef0-74faa1a23824"],
-Cell[4975, 140, 589, 17, 90, "Text",ExpressionUUID->"26efa8ed-8cf2-40c3-b790-81692030fb11"],
-Cell[5567, 159, 209, 3, 63, "Text",ExpressionUUID->"e9c0d627-a773-4b48-b4db-5b630a85a6b8"],
-Cell[5779, 164, 164, 3, 63, "Text",ExpressionUUID->"c3c07f50-a965-403c-b483-a016c0e82318"],
-Cell[5946, 169, 103, 0, 38, "Text",ExpressionUUID->"e5ba92d2-0109-4482-bed7-6e35e9ec7c58"],
-Cell[6052, 171, 184, 3, 38, "Text",ExpressionUUID->"6b4fc36c-318c-4a20-bff2-a1771b90b4f3"],
-Cell[6239, 176, 836, 28, 48, "Text",ExpressionUUID->"1e4f737a-b372-4af3-aae0-e48c11a6b8b3"]
+Cell[4260, 124, 79, 0, 62, "Section",ExpressionUUID->"8d18d157-7704-4e31-8c85-e2be31bb5897"],
+Cell[4342, 126, 4918, 121, 1259, "Text",ExpressionUUID->"a8b79342-8b6d-4d22-9f8a-f01549fe13f1"]
 }, Closed]]
 }, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9321, 254, 93, 0, 117, "Title",ExpressionUUID->"a393e728-3ca1-4ced-9fdb-0b1e5c6350fa"],
+Cell[9417, 256, 148, 3, 35, "Input",ExpressionUUID->"7e21ef20-5f48-4a1f-b6aa-bfdd213d21ed"],
+Cell[CellGroupData[{
+Cell[9590, 263, 91, 0, 83, "Chapter",ExpressionUUID->"e51f70a8-7473-473a-bb53-31b5adab4bac"],
+Cell[9684, 265, 201, 4, 35, "Input",ExpressionUUID->"d6d57742-06f6-4c11-8233-70b8b806608f"],
+Cell[9888, 271, 168, 3, 35, "Input",ExpressionUUID->"db7a8060-4ec6-4618-aca1-c2a877addf5a"],
+Cell[10059, 276, 122, 0, 42, "Text",ExpressionUUID->"b9532ff3-7a9b-49bb-a542-bf68c1b59583"],
+Cell[10184, 278, 318, 9, 55, "Input",ExpressionUUID->"3ebc1051-ecfa-4cdd-9b63-62cbb8a9f9df"],
+Cell[10505, 289, 96, 0, 42, "Text",ExpressionUUID->"051201cb-b520-47b8-b61b-968b9d13080f"],
+Cell[10604, 291, 354, 10, 56, "Input",ExpressionUUID->"d091d4b1-29ed-4384-95d3-e41c34411f84"],
+Cell[10961, 303, 86, 0, 42, "Text",ExpressionUUID->"c235b3b3-2231-42ca-a989-ad7fa1c59b79"],
+Cell[11050, 305, 424, 12, 56, "Input",ExpressionUUID->"acdde36a-1369-4ee2-9360-6593b728743f"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[7136, 211, 93, 0, 78, "Title",ExpressionUUID->"a393e728-3ca1-4ced-9fdb-0b1e5c6350fa"],
-Cell[7232, 213, 149, 3, 32, "Input",ExpressionUUID->"7e21ef20-5f48-4a1f-b6aa-bfdd213d21ed"],
+Cell[11511, 322, 94, 0, 83, "Chapter",ExpressionUUID->"820a692a-dded-4cfe-a8b2-53823b3c9f2d"],
+Cell[11608, 324, 321, 5, 97, "Text",ExpressionUUID->"fa8563a9-a308-4e15-a34a-9bd235f01e16"],
 Cell[CellGroupData[{
-Cell[7406, 220, 91, 0, 76, "Chapter",ExpressionUUID->"e51f70a8-7473-473a-bb53-31b5adab4bac"],
-Cell[7500, 222, 201, 4, 32, "Input",ExpressionUUID->"30345a97-b3e8-473d-9e84-f847281ecb91"],
-Cell[7704, 228, 168, 3, 32, "Input",ExpressionUUID->"db7a8060-4ec6-4618-aca1-c2a877addf5a"],
-Cell[7875, 233, 98, 0, 38, "Text",ExpressionUUID->"b9532ff3-7a9b-49bb-a542-bf68c1b59583"],
-Cell[7976, 235, 318, 9, 51, "Input",ExpressionUUID->"3ebc1051-ecfa-4cdd-9b63-62cbb8a9f9df"],
-Cell[8297, 246, 359, 10, 52, "Input",ExpressionUUID->"d091d4b1-29ed-4384-95d3-e41c34411f84"]
+Cell[11954, 333, 361, 10, 80, "Section",ExpressionUUID->"35795a2b-2fb6-498a-9406-4e77d8d10dbb"],
+Cell[12318, 345, 119, 0, 42, "Text",ExpressionUUID->"745583bb-b6a7-4d7e-b36d-5f8213c1858a"],
+Cell[12440, 347, 113, 0, 35, "Input",ExpressionUUID->"356dacf6-e30e-4ab6-adde-b6d898e66278"],
+Cell[12556, 349, 803, 16, 153, "Text",ExpressionUUID->"942739b3-f260-44c2-9704-4115cae5abd9"],
+Cell[13362, 367, 115, 1, 35, "Input",ExpressionUUID->"5cbfb115-0c0e-4ac9-8ce6-dc6cf566acb1"],
+Cell[13480, 370, 764, 16, 156, "Text",ExpressionUUID->"3280a3d4-c79a-47e0-8230-d6e716da8d15"],
+Cell[14247, 388, 116, 1, 35, "Input",ExpressionUUID->"592b7fbd-4331-4535-9553-d1d55ea04eeb"],
+Cell[14366, 391, 588, 10, 152, "Text",ExpressionUUID->"ff7f2564-df33-4a5e-a115-0b536622e21c"],
+Cell[14957, 403, 92, 0, 35, "Input",ExpressionUUID->"c3f33690-ba94-4b25-8455-04f1f415c6b5"],
+Cell[15052, 405, 169, 3, 42, "Text",ExpressionUUID->"0ace55c0-6a2b-4861-9266-674ef789e874"],
+Cell[15224, 410, 117, 1, 35, "Input",ExpressionUUID->"2435b282-243b-4715-80c4-662fb242ac32"],
+Cell[15344, 413, 314, 8, 42, "Text",ExpressionUUID->"0feda23e-03b8-446f-843a-956dfe435f8a"],
+Cell[15661, 423, 427, 11, 35, "Input",ExpressionUUID->"1aa2d0c8-c73d-4410-8034-40591065c8a8"],
+Cell[16091, 436, 662, 13, 97, "Text",ExpressionUUID->"8dcfc6ef-c650-4840-b8a5-00355bf255e1"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[8693, 261, 94, 0, 64, "Chapter",ExpressionUUID->"820a692a-dded-4cfe-a8b2-53823b3c9f2d"],
-Cell[8790, 263, 321, 5, 89, "Text",ExpressionUUID->"fa8563a9-a308-4e15-a34a-9bd235f01e16"],
-Cell[CellGroupData[{
-Cell[9136, 272, 394, 11, 74, "Section",ExpressionUUID->"35795a2b-2fb6-498a-9406-4e77d8d10dbb"],
-Cell[9533, 285, 119, 0, 38, "Text",ExpressionUUID->"745583bb-b6a7-4d7e-b36d-5f8213c1858a"],
-Cell[9655, 287, 141, 2, 32, "Input",ExpressionUUID->"f07e4fb9-dfbd-47b1-9fa3-01dba2642efe"],
-Cell[9799, 291, 761, 16, 141, "Text",ExpressionUUID->"942739b3-f260-44c2-9704-4115cae5abd9"],
-Cell[10563, 309, 114, 1, 32, "Input",ExpressionUUID->"5cbfb115-0c0e-4ac9-8ce6-dc6cf566acb1"],
-Cell[10680, 312, 725, 16, 143, "Text",ExpressionUUID->"3280a3d4-c79a-47e0-8230-d6e716da8d15"],
-Cell[11408, 330, 107, 1, 32, "Input",ExpressionUUID->"c9b9dada-9e12-47e1-9d69-d5b8c298edfa"],
-Cell[11518, 333, 545, 10, 139, "Text",ExpressionUUID->"ff7f2564-df33-4a5e-a115-0b536622e21c"],
-Cell[12066, 345, 114, 1, 32, "Input",ExpressionUUID->"f3f9380a-0b5c-4810-ba37-3e6a5ad47d62"],
-Cell[12183, 348, 145, 2, 38, "Text",ExpressionUUID->"0ace55c0-6a2b-4861-9266-674ef789e874"],
-Cell[12331, 352, 117, 1, 32, "Input",ExpressionUUID->"2435b282-243b-4715-80c4-662fb242ac32"],
-Cell[12451, 355, 183, 3, 38, "Text",ExpressionUUID->"0feda23e-03b8-446f-843a-956dfe435f8a"],
-Cell[12637, 360, 360, 10, 32, "Input",ExpressionUUID->"1aa2d0c8-c73d-4410-8034-40591065c8a8"],
-Cell[13000, 372, 117, 0, 38, "Text",ExpressionUUID->"8dcfc6ef-c650-4840-b8a5-00355bf255e1"]
+Cell[16790, 454, 104, 0, 80, "Section",ExpressionUUID->"3f171786-3484-4848-a9d1-71dcf230a8f4"],
+Cell[16897, 456, 164, 3, 42, "Text",ExpressionUUID->"d2b20f9e-15d8-422a-ba4c-71856b591f65"],
+Cell[17064, 461, 789, 22, 85, "Input",ExpressionUUID->"76fb20c1-ae59-479d-9f8e-ff03faa39e79"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[13154, 377, 83, 0, 74, "Section",ExpressionUUID->"3f171786-3484-4848-a9d1-71dcf230a8f4"],
-Cell[13240, 379, 104, 0, 38, "Text",ExpressionUUID->"d2b20f9e-15d8-422a-ba4c-71856b591f65"],
-Cell[13347, 381, 706, 20, 80, "Input",ExpressionUUID->"76fb20c1-ae59-479d-9f8e-ff03faa39e79"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[14090, 406, 103, 0, 58, "Section",ExpressionUUID->"59060e30-ddd6-4438-8680-e2af0b4c2fc1"],
-Cell[14196, 408, 218, 3, 63, "Text",ExpressionUUID->"6ebcf9ee-cdf4-4ea9-b5e8-e57d7080693a"],
-Cell[14417, 413, 1188, 36, 55, "Input",ExpressionUUID->"d2936ba1-6516-44bb-b6c1-eedbd66bd212"],
-Cell[15608, 451, 91, 0, 38, "Text",ExpressionUUID->"ac47622b-a7fd-4520-8be1-bbe579b97f43"],
-Cell[15702, 453, 2285, 67, 128, "Input",ExpressionUUID->"8da89e42-c471-4dbd-9da5-929f1d56a549"],
-Cell[17990, 522, 165, 3, 38, "Text",ExpressionUUID->"17df193f-a2f6-4b61-9747-9acc10072496"]
+Cell[17890, 488, 104, 0, 80, "Section",ExpressionUUID->"59060e30-ddd6-4438-8680-e2af0b4c2fc1"],
+Cell[17997, 490, 218, 3, 69, "Text",ExpressionUUID->"6ebcf9ee-cdf4-4ea9-b5e8-e57d7080693a"],
+Cell[18218, 495, 1188, 36, 59, "Input",ExpressionUUID->"d2936ba1-6516-44bb-b6c1-eedbd66bd212"],
+Cell[19409, 533, 91, 0, 42, "Text",ExpressionUUID->"ac47622b-a7fd-4520-8be1-bbe579b97f43"],
+Cell[19503, 535, 2285, 67, 113, "Input",ExpressionUUID->"8da89e42-c471-4dbd-9da5-929f1d56a549"],
+Cell[21791, 604, 165, 3, 42, "Text",ExpressionUUID->"17df193f-a2f6-4b61-9747-9acc10072496"]
 }, Closed]]
 }, Closed]]
 }, Closed]]
